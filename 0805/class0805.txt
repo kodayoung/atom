@@ -48,3 +48,158 @@ jQuery : 언어가 아님. javascript의 줄임말세트(라이브러리)
 2. 8월16일 클릭하면 아싸휴일이다 알림
 3. 8월31일 이미지 넣기
 4. 8월15일 광복절에 대한 정보가 나오는 네이버 광복절 페이지 링크 연결
+
+
+
+
+
+
+
+과제 질문)
+1. css style에서 클래스 태그로 설정시 일정 태그만 적용 예외시킬 수 있나요?
+
+<style>
+  .my_class { //class
+    font-size: 50px;
+    color : red;
+  }
+
+  #my_id { //id
+    text-align: center;
+    color : blue;
+  }
+
+  div { //태그
+    color : yellow;
+  }
+
+  .my_class {
+    font-size: 70px;
+    background-color : green;
+  }
+</style>
+
+<div class="my_class">하하하</div> //빨간색 70px
+<div class="my_class" id="my_id">하하하</div> //파란색 70px
+<div class="my_class">하하하</div> //빨간색 70px
+
+단위 크기 : 태그 > 클래스 > id
+
+
+클래스와 id
+모든 태그에는 클래스와 id 속성을 줄 수 있다
+클래스는 서식을 정하기 위해 사용
+id는 태그를 클래스와 구분하기위해 사용
+클래스는 여러 태그들이 중복하여 사용해도 되지만
+id는 고유값임(유일해야한다)
+
+. : 클래스
+# : id
+
+cascade(폭포수치다) : 범위가 더 작게 잡은 것이 우선할 것이라고 자의적으로 해석
+                      따라서 class보다 id가 더 우선순위를 가진다
+                      .my_class 가 다 적용되고, #my_id 가 적용되면서 충돌되는 부분만 replace된다
+
+replace(치환) : 기존의 것은 지우고 치환하는 것
+
+A.
+애당초 div 태그 스타일로 적용하지 않는다.
+하지만 만약 필요하다면 exeption class를 생성하여 적용되지 않은 default값을 설정해둔다
+
+
+-----------------------------------------------------------------------------------------------------
+2. 같은 줄 안에 공간배치가 아직도 좀 잘 안되서 그런데 float를 써야할지 postition을 써야할지 궁금하네요. 공간 배치가 예쁘게 잘 안되서
+
+A.
+모든 경우가 가능함
+float도 position도 가능
+단기간에 되는 문제가 아님
+6개월은 걸림
+
+float -> 다른 정렬들을 다 무시하고 이 속성을 적용한 태그만 이기적으로 정렬이 적용됨
+position -> fixed, relative, absolute
+
+fixed : 태그를 화면 스크롤과 관계없이 그 위치에 고정되게 만든다.
+        단, 해당태그를 block이 아닌 inline-block 속성으로 바꿔버린다.
+
+        속성 display에 대한 값
+        block : 색종이같은거. 크기속성도 설정가능. 욕심쟁이여서 한줄 다먹음.
+        inline : 글자같은거. 크기개념이 없고 강제개행없음
+        inline-block : 강제개행없지만 크기개념 있음
+              - 속성 vertical-align : top/bottom (한 줄 안에서 정렬)
+        none : 없어짐. 안보임
+
+        태그는 기본적으로 display속성 default값을 가진다.
+        div : block
+        span : inline
+        table : block
+
+
+relative : absolute를 위해 존재. absolute의 기준이 된다
+
+absolute : 가장 가까운 조상 태그 중 relative를 가진 태그를 찾아서 그를 기준으로 좌표를 잡음
+
+
+ex)
+<style>
+	.div1 {
+		height: 300px;
+		background-color: red;
+    position : relative (이렇게 absolute 태그들의 가장 가까운 조상태그를 relative로 설정을 해야 absolute의 기준이 웹사이트가 되지 않고 이 div가 된다)
+	}
+
+	.div2 {
+		width: 150px;
+		height: 150px;
+		background-color: blue;
+	}
+
+	.div3 {
+		width: 100px;
+		height: 100px;
+		background-color: yellow;
+    position: absolute;
+    top : 250px; //웹사이트 젤 위에서부터 아래로 250px 위치(조상태그 relative 설정 안되어있을 경우)
+    left : 100px; //웹사이트 왼쪽에서부터 오른쪽으로 100px 위치
+	}
+
+  .div4 {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    position: absolute;
+    top : 280px; //웹사이트 젤 위에서부터 아래로 250px 위치
+    left : 130px; //웹사이트 왼쪽에서부터 오른쪽으로 100px 위치
+    z-index : //z-index는 깊인데 어느게 더 앞으로 정렬되느냐 차이이긴  absolute에서만 유의미함
+  }
+
+</style>
+
+<body>
+	<br>
+	<br>
+
+	<div class="div1">
+		<div class="div2">
+			무야호~
+		</div>
+
+		<div class="div3">
+			유야호~~
+		</div>
+
+    <div class="div4">
+			무유야호~~ㄴ
+		</div>
+	</div>
+</body>
+
+
+absolute는 position이 relative를 가지는 가장 가까운 조상 태그를 기준으로 움직인다
+body는 기본적으로 default값으로 relative를 갖는다
+
+------------------------------------------------------------------------------------------------------
+3. table만들때 다들 tr(행)을 먼저 만들고 그안에 자식태그로td(열)을 쓰는데 td를 먼저 만들면 안되나요?
+
+
+A. 안돼요. 문법어긋납니다.
