@@ -1,0 +1,100 @@
+Bootstrap : 프레임워크
+CSS랑 javascript 내용에 대한 태그 head태그 안에 복붙
+
+script나 style태그가 head에 있을 때랑 body에 있을 때 차이
+head에 있으면 빠름
+body에 있으면 그 script나 style태그를 로딩하는데 시간이 걸림
+head에만 많이 써도 그걸 로딩하는데도 오래걸려서 body 출력이 안될수도있음
+
+디자인 같은 눈에 시각적으로 보여야하는 경우는 눈에 보여야하므로 head에 쓰는게 좋음
+
+
+Bootstrap
+docs > components에서 그대로 코드 가져와서 쓰면된다
+버튼 button
+진행바 progress
+버튼을 누르면 보여지고/사라지고 collapse
+
+docs > utilities
+colors bootstrap에서 제공하는 기본 색상
+
+docs > display
+d-{value} 예시 나와있는거 복붙으로 사용
+
+
+display flex의 경우
+속성 justify content
+가로하나를 크게 차지하는데 그 안 요소들은 자기 크기만큼 가지고
+정렬시킬 수 있음
+
+align-items-end : 정렬 아래 끝에 맞추기
+
+docs > utilities > posision
+
+docs > utilities > text
+글자크기, 굵기, 이탤릭체 등
+
+
+docs > content > tables
+
+
+docs > layout > container
+웹페이지볼 때 사람들이 편하게 볼 수 있도록 양 옆에 어느정도 여백을 둬주는 기능
+
+반응형 웹페이지 : 페이지크기가 기기에 따라 바뀔 수도 있고, 화면크기를 조절할 수 있다
+
+
+docs > layout > grid
+bootstrap은 화면을 12개로 쪼개놨다
+class row
+3개를 쓰면 균등하게 4칸씩 배정해준다
+비율 조정도가능 대신 12는 맞춰줘야 꽉 차고 작으면 작게
+크면 넘쳐서 다음줄로 보여진다
+col-2
+col-3
+2:3으로 배정
+
+col-md-2 : 창 크기가 md크기 이상인 경우 2차지하게 하겠다
+col-md-10 : 창 크기가 md크기 이상인 경우 10차지하게 하겠다
+
+창 어느 크기 기준
+sm
+md
+lg
+xl
+xxl
+fluid
+
+d-sm-none : 크기가 sm보다 작아질 경우 안보이게 할 수도 있음
+
+-----------------------------------------------------------------------------------------
+bootstrap 실습 질문
+1. 저 table 색상이 적용이 안 됐어요
+A. 코드 복사하고 안에 tr td 태그 넣어보면 보임
+
+2. 저 collapse 실행에서 다시 눌렀을때 사라지지가 않아요
+A.
+
+3. 방금 on this page처럼 화면이 작아졌을때 없어지게는 어떻게 하나요?
+A. d-none d-sm-block
+
+4. Carousel에서 alt에는 어떤걸 입력하나요?
+<div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+A. 배너에서 많이 사용
+src는 이미지 주소 alt는 마우스 올렸을때 설명글 나오는거
+
+5. 부트스트랩 설명 중에 커스터마이즈는 커스터마이즈 방법을 알려주는건가요?
+A. 맞는데 도움될것같진않음
+
+------------------------------------------------------------------------------------
+복습 및 총정리
+
+1. 반응형웹이란?
+웹사이트 크기에 따라 요소들을 변형해주는 것
+grid 레이아웃은 가로를 12개로 나눠둔 것
+
+div class="row" 안에
+div class="col"들을 둬서 일정크기 조절이 가능
+
+col-정수 쓰면 그 비율대로 만들 수 있다.
