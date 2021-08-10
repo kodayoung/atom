@@ -81,4 +81,41 @@ display : flex 사용
 bootstrap
 justify-content-start/end/center/between/around
 
-align-item-start/end/center/baseline/stretch
+align-item-start/end/center/baseline/stretch(default)
+
+이거 두개 활용하면 딱 가운데 정렬은 물론이고 응용이 가능
+
+
+
+
+
+레이아웃 만들기
+grid 복습
+가장 바깥에 있어야 하는것이 container
+container-fluid 하면 가로 전체 화면 사용가능
+
+container안에
+row안에 있는 것들을 가로를 12등분
+col-8 col-4 형태로 나눠준다
+
+class row 된거는 무조건 12등분 시켜주고
+그 안에 class col-4 이런식으로 비율 만들수있다
+
+row안에 또 row 써서 12등분 한거를 또 12등분 시킬 수 있음
+
+
+!! grid로 전체적인 틀의 레이아웃을 하고
+그 안 요소의 정렬은 flex로 하는거 !!
+
+전체 웹 사이즈별로 하고 싶은거면 col-sm-8 이런식으로 조절
+col-12 col-sm-8 이렇게 설정하면
+핸드폰마냥 작아보일땐 한줄 전체 차지하게 어느정도 커지면 한줄 8만큼만 차지하게
+
+
+엄청많은 종류의 반응형을 만들고싶으면 @mediaquery 찾아봐야해
+
+
+
+bootstrap에서는 배경색같은거 #3333 이거 못넣고 style태그로 넣어야됨
+
+뭔가 나누는데 있어서 빈칸이 생긴다 싶으면 padding 이나 margin 없애보기
