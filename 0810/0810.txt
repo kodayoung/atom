@@ -119,3 +119,8 @@ col-12 col-sm-8 이렇게 설정하면
 bootstrap에서는 배경색같은거 #3333 이거 못넣고 style태그로 넣어야됨
 
 뭔가 나누는데 있어서 빈칸이 생긴다 싶으면 padding 이나 margin 없애보기
+
+
+
+bootstrap은 container가 최상단에 있다고 가정이 된다
+그래서 container안에 grid가 들어가는게 더 맞아보임
